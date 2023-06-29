@@ -14,10 +14,6 @@
 		FA3ED83D2A4D82710019AE9A /* ConverterAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED83C2A4D82710019AE9A /* ConverterAppTests.swift */; };
 		FA3ED8472A4D82710019AE9A /* ConverterAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED8462A4D82710019AE9A /* ConverterAppUITests.swift */; };
 		FA3ED8492A4D82710019AE9A /* ConverterAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED8482A4D82710019AE9A /* ConverterAppUITestsLaunchTests.swift */; };
-		FA3ED8562A4D82A60019AE9A /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED8552A4D82A60019AE9A /* Currency.swift */; };
-		FA3ED8582A4D82C40019AE9A /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED8572A4D82C40019AE9A /* ConverterView.swift */; };
-		FA3ED85A2A4D82E70019AE9A /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED8592A4D82E70019AE9A /* ConverterViewModel.swift */; };
-		FA3ED85C2A4D83010019AE9A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3ED85B2A4D83010019AE9A /* APIClient.swift */; };
 		FA3ED85E2A4D97B20019AE9A /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3ED85D2A4D97B20019AE9A /* Property List.plist */; };
 /* End PBXBuildFile section */
 
@@ -49,10 +45,6 @@
 		FA3ED8422A4D82710019AE9A /* ConverterAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConverterAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3ED8462A4D82710019AE9A /* ConverterAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterAppUITests.swift; sourceTree = "<group>"; };
 		FA3ED8482A4D82710019AE9A /* ConverterAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		FA3ED8552A4D82A60019AE9A /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		FA3ED8572A4D82C40019AE9A /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
-		FA3ED8592A4D82E70019AE9A /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModel.swift; sourceTree = "<group>"; };
-		FA3ED85B2A4D83010019AE9A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FA3ED85D2A4D97B20019AE9A /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,10 +98,6 @@
 			children = (
 				FA3ED82B2A4D826C0019AE9A /* ConverterAppApp.swift */,
 				FA3ED82D2A4D826C0019AE9A /* ContentView.swift */,
-				FA3ED8552A4D82A60019AE9A /* Currency.swift */,
-				FA3ED8572A4D82C40019AE9A /* ConverterView.swift */,
-				FA3ED8592A4D82E70019AE9A /* ConverterViewModel.swift */,
-				FA3ED85B2A4D83010019AE9A /* APIClient.swift */,
 				FA3ED85D2A4D97B20019AE9A /* Property List.plist */,
 				FA3ED82F2A4D82700019AE9A /* Assets.xcassets */,
 				FA3ED8312A4D82700019AE9A /* Preview Content */,
@@ -273,12 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3ED8562A4D82A60019AE9A /* Currency.swift in Sources */,
-				FA3ED85A2A4D82E70019AE9A /* ConverterViewModel.swift in Sources */,
-				FA3ED8582A4D82C40019AE9A /* ConverterView.swift in Sources */,
 				FA3ED82E2A4D826C0019AE9A /* ContentView.swift in Sources */,
 				FA3ED82C2A4D826C0019AE9A /* ConverterAppApp.swift in Sources */,
-				FA3ED85C2A4D83010019AE9A /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
