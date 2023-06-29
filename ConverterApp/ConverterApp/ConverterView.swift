@@ -7,6 +7,8 @@
 
 // ConverterView.swift
 
+// ConverterView.swift
+
 import Foundation
 import SwiftUI
 
@@ -26,9 +28,9 @@ struct ConverterView: View {
                 .keyboardType(.decimalPad)
             
             Picker("From Currency", selection: $fromCurrency) {
-                ForEach(Array(viewModel.currencies.keys), id: \.self) { currencyCode in
-                    Text(viewModel.currencies[currencyCode] ?? "")
-                        .tag(viewModel.currencies[currencyCode])
+                ForEach(viewModel.currencies, id: \.self) { currency in
+                    Text(currency.name)
+                        .tag(currency)
                 }
             }
             .pickerStyle(.menu)
@@ -38,9 +40,9 @@ struct ConverterView: View {
             }
 
             Picker("To Currency", selection: $toCurrency) {
-                ForEach(Array(viewModel.currencies.keys), id: \.self) { currencyCode in
-                    Text(viewModel.currencies[currencyCode] ?? "")
-                        .tag(viewModel.currencies[currencyCode])
+                ForEach(viewModel.currencies, id: \.self) { currency in
+                    Text(currency.name)
+                        .tag(currency)
                 }
             }
             .pickerStyle(.menu)

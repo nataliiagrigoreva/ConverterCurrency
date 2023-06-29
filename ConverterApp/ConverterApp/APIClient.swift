@@ -20,10 +20,20 @@ protocol APIClient {
 }
 
 class ExchangeRatesAPIClient: APIClient {
-    private let apiKey = "YOUR_KEY" // Replace with your API key
+    private let apiKey = "f0c58e87b9c5760607a1481bfdb80dfd" // Replace with your API key
     
     func getAvailableCurrencies(completion: @escaping (Result<[Currency], APIError>) -> Void) {
-        guard let url = URL(string: "https://data.fixer.io/api/symbols?access_key=\(apiKey)") else {
+        let currencies: [Currency] = [
+                Currency(code: "USD", name: "United States Dollar", rate: 1.088198),
+                Currency(code: "AUD", name: "Australian Dollar", rate: 1.641127),
+                Currency(code: "CAD", name: "Canadian Dollar", rate: 1.441705),
+                Currency(code: "PLN", name: "Polish Zloty", rate: 4.444789),
+                Currency(code: "MXN", name: "Mexican Peso", rate: 18.617821)
+            ]
+            
+            completion(.success(currencies))
+        
+        guard let url = URL(string: "https://api.exchangeratesapi.io/latest?access_key=\(apiKey)") else {
             completion(.failure(.invalidURL))
             return
         }
@@ -37,18 +47,18 @@ class ExchangeRatesAPIClient: APIClient {
             guard let data = data,
                   let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                   let success = json["success"] as? Bool, success == true,
-                  let symbols = json["symbols"] as? [String: String] else {
+                  let rates = json["rates"] as? [String: Double] else {
                       completion(.failure(.invalidResponse))
                       return
                   }
             
-            let currencies = symbols.map { Currency(code: $0.key, name: $0.value, rate: 0.0) }
+            let currencies = rates.map { Currency(code: $0.key, name: $0.key, rate: $0.value) }
             completion(.success(currencies))
         }.resume()
     }
-    
+
     func getExchangeRate(fromCurrency: String, toCurrency: String, completion: @escaping (Result<Double, APIError>) -> Void) {
-        guard let url = URL(string: "https://data.fixer.io/api/latest?access_key=\(apiKey)&base=\(fromCurrency)&symbols=\(toCurrency)") else {
+        guard let url = URL(string: "https://api.exchangeratesapi.io/latest?access_key=\(apiKey)&base=\(fromCurrency)&symbols=\(toCurrency)") else {
             completion(.failure(.invalidURL))
             return
         }
@@ -70,4 +80,5 @@ class ExchangeRatesAPIClient: APIClient {
             completion(.success(rate))
         }.resume()
     }
+
 }

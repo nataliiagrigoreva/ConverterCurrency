@@ -4,6 +4,7 @@
 //
 //  Created by Nataly on 29.06.2023.
 //
+// ConverterViewModel.swift
 
 import Foundation
 
@@ -13,7 +14,7 @@ class ConverterViewModel: ObservableObject {
     @Published var fromCurrency: Currency?
     @Published var toCurrency: Currency?
     @Published var convertedAmount: String = ""
-    @Published var currencies: [String: String] = [:]
+    @Published var currencies: [Currency] = []
     
     private let apiClient: APIClient
     
@@ -23,19 +24,17 @@ class ConverterViewModel: ObservableObject {
     }
     
     private func fetchCurrencies() {
-        apiClient.getAvailableCurrencies { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let currencies):
-                    self.currencies = currencies.reduce(into: [String: String]()) { dict, currency in
-                        dict[currency.code] = currency.name
-                    }
-                case .failure(let error):
-                    print("Failed to fetch currencies: \(error.localizedDescription)")
-                }
-            }
-        }
+        let currencies: [Currency] = [
+            Currency(code: "USD", name: "United States Dollar", rate: 1.088198),
+            Currency(code: "AUD", name: "Australian Dollar", rate: 1.641127),
+            Currency(code: "CAD", name: "Canadian Dollar", rate: 1.441705),
+            Currency(code: "PLN", name: "Polish Zloty", rate: 4.444789),
+            Currency(code: "MXN", name: "Mexican Peso", rate: 18.617821)
+        ]
+        
+        self.currencies = currencies
     }
+
     
     func convert() {
         guard let amount = Double(amount) else {
